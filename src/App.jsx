@@ -79,7 +79,7 @@ const codeProjects = [
   {
     id: 1,
     title: "Reel Radar",
-    description: "Browser-based modular synthesizer built with Web Audio API. Supports MIDI input, custom oscillators, and real-time visualization.",
+    description: "A web application that allows content creators to discover and track popular content on Youtube, Tiktok and Instagram.",
     image: "reelradarimage.png",
     status: "completed",
     date: "2026",
@@ -88,8 +88,8 @@ const codeProjects = [
   },
   {
     id: 2,
-    title: "Pixel Forge",
-    description: "Real-time collaborative pixel art editor with WebSocket sync, layer support, and animation timeline.",
+    title: "RuTimer",
+    description: "A Rubik's cube timer that allows you to track your time and progress. The Solution generator is a work in progress. The aim is to make a simplistic, user friendly timer that has every tool needed to track solve progress while also helping beginners find smart solutions.",
     image: "Rutimer.png",
     status: "wip",
     date: "In Progress (2026)",
