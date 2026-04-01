@@ -303,8 +303,8 @@ function LiquidGlassButton({ children, onClick, className = "" }) {
   return (
     <button
       onClick={onClick}
-      className={`relative inline-flex items-center justify-center cursor-pointer gap-2 whitespace-nowrap text-sm font-medium transition-all duration-300 hover:scale-105 h-12 px-8 rounded-full ${className}`}
-      style={{ color: "#64B5F6" }}
+      className={`relative inline-flex items-center justify-center cursor-pointer gap-2 whitespace-nowrap text-sm font-medium transition-all duration-300 hover:scale-105 h-12 px-10 rounded-full ${className}`}
+      style={{ color: "#64B5F6", minWidth: 140 }}
     >
       <div
         className="absolute top-0 left-0 z-0 h-full w-full rounded-full"
@@ -358,9 +358,9 @@ function Navbar({ currentPage, setCurrentPage }) {
 
   const links = [
     { key: "home", label: "Home" },
-    { key: "design", label: "Design" },
-    { key: "art", label: "Art" },
     { key: "code", label: "Code" },
+    { key: "art", label: "Art" },
+    { key: "design", label: "Design" },
   ];
 
   return (
