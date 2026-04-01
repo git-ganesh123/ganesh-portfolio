@@ -386,7 +386,7 @@ function Navbar({ currentPage, setCurrentPage }) {
 
 // ─── MODAL ──────────────────────────────────────────────────────────────────
 
-function Modal({ isOpen, onClose, children }) {
+function Modal({ isOpen, onClose, children, contentStyle = {} }) {
   useEffect(() => {
     const handleKey = (e) => { if (e.key === "Escape") onClose(); };
     if (isOpen) {
@@ -423,6 +423,7 @@ function Modal({ isOpen, onClose, children }) {
               background: "rgba(6,14,30,0.98)", border: "1px solid rgba(100,181,246,0.08)",
               borderRadius: 16, maxWidth: 720, width: "100%", maxHeight: "85vh", overflow: "auto",
               boxShadow: "0 24px 80px rgba(0,0,0,0.6), 0 0 40px rgba(100,181,246,0.03)",
+              ...contentStyle,
             }}
           >
             <button
@@ -719,10 +720,25 @@ function ArtPage() {
         <MoreToCome />
       </div>
 
-      <Modal isOpen={selectedIdx !== null} onClose={() => setSelectedIdx(null)}>
+      <Modal
+        isOpen={selectedIdx !== null}
+        onClose={() => setSelectedIdx(null)}
+        contentStyle={{ maxWidth: "min(96vw, 1400px)", width: "auto" }}
+      >
         {selected && (
           <div>
-            <img src={selected.image} alt={selected.title} style={{ width: "100%", aspectRatio: "16/10", objectFit: "cover", borderRadius: "16px 16px 0 0" }} />
+            <img
+              src={selected.image}
+              alt={selected.title}
+              style={{
+                width: "100%",
+                height: "auto",
+                maxHeight: "70vh",
+                objectFit: "contain",
+                borderRadius: "16px 16px 0 0",
+                background: "#02060f",
+              }}
+            />
             <div style={{ padding: "28px 32px 36px" }}>
               <h2 style={{ color: "#fff", fontSize: 24, fontWeight: 700, marginBottom: 4 }}>{selected.title}</h2>
               <p style={{ color: "#64B5F6", fontSize: 13, fontWeight: 500, marginBottom: 4 }}>{selected.date}</p>
