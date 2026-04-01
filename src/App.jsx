@@ -99,9 +99,9 @@ const codeProjects = [
 ];
 
 const skills = {
-  Design: ["Figma", "Photoshop", "Illustrator", "After Effects", "Principle"],
-  Art: ["Digital Painting", "Concept Art", "Sketching", "3D Sculpting"],
-  Code: ["Python", "JavaScript", "TypeScript", "React", "Next.js", "Rust"],
+  Design: ["Figma", "Illustrator", "Fusion360", "Web Design"],
+  Art: ["Digital Art", "Charcoal Art", "Painting", "Graphite Sketching"],
+  Code: ["Python", "JavaScript", "Git", "Next.js", "Fullstack Development"],
 };
 
 // ─── SPARKLE SHOWER ON LOAD ─────────────────────────────────────────────────
