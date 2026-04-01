@@ -391,39 +391,18 @@ function Navbar({ currentPage, setCurrentPage }) {
       >
         Ganesh's <span style={{ opacity: 0.45, fontWeight: 400 }}>Portfolio</span>
       </div>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: 20,
-        }}
-      >
-        <button
-          onClick={() => setCurrentPage("home")}
-          style={{
-            background: "none",
-            border: "none",
-            cursor: "pointer",
-            color: currentPage === "home" ? "#64B5F6" : "rgba(136,153,170,0.75)",
-            fontSize: 13,
-            fontWeight: 500,
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
-          }}
-        >
-          Home
-        </button>
+      <div style={{ flex: 1, display: "flex", justifyContent: "center" }}>
         <div
           style={{
             position: "relative",
             display: "inline-flex",
             alignItems: "center",
             justifyContent: "center",
-            gap: 16,
-            padding: "6px 18px",
+            gap: 18,
+            padding: "9px 26px",
             borderRadius: 999,
             color: "#64B5F6",
-            minWidth: 220,
+            minWidth: 260,
           }}
         >
           <div
@@ -437,31 +416,34 @@ function Navbar({ currentPage, setCurrentPage }) {
             className="absolute top-0 left-0 isolate -z-10 h-full w-full overflow-hidden rounded-full"
             style={{
               backdropFilter: "blur(12px) saturate(1.4)",
-              background: "rgba(100,181,246,0.08)",
+              background: "rgba(100,181,246,0.1)",
             }}
           />
-          {links
-            .filter((l) => l.key !== "home")
-            .map((l) => (
-              <button
-                key={l.key}
-                onClick={() => setCurrentPage(l.key)}
-                style={{
-                  background: "none",
-                  border: "none",
-                  cursor: "pointer",
-                  position: "relative",
-                  color: currentPage === l.key ? "#E3F2FD" : "rgba(197,218,242,0.86)",
-                  fontSize: 13,
-                  fontWeight: currentPage === l.key ? 600 : 500,
-                  letterSpacing: "0.08em",
-                  textTransform: "uppercase",
-                  padding: "4px 6px",
-                }}
-              >
-                {l.label}
-              </button>
-            ))}
+          {links.map((l) => (
+            <button
+              key={l.key}
+              onClick={() => setCurrentPage(l.key)}
+              style={{
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                position: "relative",
+                color:
+                  currentPage === l.key
+                    ? "#E3F2FD"
+                    : l.key === "home"
+                    ? "rgba(210,227,244,0.92)"
+                    : "rgba(197,218,242,0.86)",
+                fontSize: 13,
+                fontWeight: currentPage === l.key ? 600 : 500,
+                letterSpacing: "0.08em",
+                textTransform: "uppercase",
+                padding: "4px 6px",
+              }}
+            >
+              {l.label}
+            </button>
+          ))}
         </div>
       </div>
     </motion.nav>
