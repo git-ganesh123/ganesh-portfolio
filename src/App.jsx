@@ -658,7 +658,7 @@ function HomePage({ setCurrentPage }) {
             border: "1px solid rgba(100,181,246,0.08)",
           }}>
             <motion.img
-              src="/aboutme.png"
+              src="IMG_6024.png"
               alt="Ganesh portrait"
               style={{ width: "100%", aspectRatio: "3/4", objectFit: "cover", display: "block" }}
               whileHover={{ scale: 1.03 }}
