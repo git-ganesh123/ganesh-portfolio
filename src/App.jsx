@@ -47,7 +47,7 @@ const artProjects = [
     description: "My first succesful hyperrealism attempt using only HB pencils.",
     image: "art3.jpg",
     date: "2024",
-    medium: "Digital Illustration — Procreate",
+    medium: "Pencil Sketching",
   },
   {
     id: 4,
