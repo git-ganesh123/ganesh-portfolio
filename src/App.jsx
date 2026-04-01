@@ -486,9 +486,15 @@ function Modal({ isOpen, onClose, children, contentStyle = {} }) {
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
             onClick={(e) => e.stopPropagation()}
             style={{
-              background: "rgba(6,14,30,0.98)", border: "1px solid rgba(100,181,246,0.08)",
-              borderRadius: 16, maxWidth: 720, width: "100%", maxHeight: "85vh", overflow: "auto",
-              boxShadow: "0 24px 80px rgba(0,0,0,0.6), 0 0 40px rgba(100,181,246,0.03)",
+              background: "rgba(6,14,30,0.9)",
+              border: "1px solid rgba(100,181,246,0.1)",
+              borderRadius: 16,
+              maxWidth: 720,
+              width: "100%",
+              maxHeight: "85vh",
+              overflow: "auto",
+              boxShadow: "0 24px 80px rgba(0,0,0,0.7), 0 0 40px rgba(100,181,246,0.05)",
+              backdropFilter: "blur(18px) saturate(1.35)",
               ...contentStyle,
             }}
           >
@@ -522,8 +528,12 @@ function ProjectCard({ project, onClick, index }) {
       transition={{ duration: 0.5, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
       onClick={() => onClick(project)}
       style={{
-        cursor: "pointer", borderRadius: 14, overflow: "hidden",
-        background: "rgba(6,14,30,0.7)", border: "1px solid rgba(100,181,246,0.04)",
+        cursor: "pointer",
+        borderRadius: 14,
+        overflow: "hidden",
+        background: "rgba(6,14,30,0.45)",
+        border: "1px solid rgba(100,181,246,0.06)",
+        backdropFilter: "blur(14px) saturate(1.3)",
         transition: "all 0.35s cubic-bezier(0.22, 1, 0.36, 1)",
       }}
       whileHover={{
@@ -660,8 +670,11 @@ function HomePage({ setCurrentPage }) {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               style={{
-                padding: 28, borderRadius: 14,
-                background: "rgba(6,14,30,0.6)", border: "1px solid rgba(100,181,246,0.04)",
+                padding: 28,
+                borderRadius: 14,
+                background: "rgba(6,14,30,0.42)",
+                border: "1px solid rgba(100,181,246,0.06)",
+                backdropFilter: "blur(14px) saturate(1.25)",
               }}
             >
               <h3 style={{ color: "#fff", fontSize: 16, fontWeight: 600, marginBottom: 6 }}>{job.title}</h3>
@@ -689,8 +702,11 @@ function HomePage({ setCurrentPage }) {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               style={{
-                padding: 28, borderRadius: 14,
-                background: "rgba(6,14,30,0.6)", border: "1px solid rgba(100,181,246,0.04)",
+                padding: 28,
+                borderRadius: 14,
+                background: "rgba(6,14,30,0.42)",
+                border: "1px solid rgba(100,181,246,0.06)",
+                backdropFilter: "blur(14px) saturate(1.25)",
               }}
             >
               <h3 style={{ color: "#fff", fontSize: 16, fontWeight: 600, marginBottom: 16 }}>{category}</h3>
@@ -725,8 +741,11 @@ function HomePage({ setCurrentPage }) {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               style={{
-                padding: 28, borderRadius: 14,
-                background: "rgba(6,14,30,0.6)", border: "1px solid rgba(100,181,246,0.04)",
+                padding: 28,
+                borderRadius: 14,
+                background: "rgba(6,14,30,0.42)",
+                border: "1px solid rgba(100,181,246,0.06)",
+                backdropFilter: "blur(14px) saturate(1.25)",
               }}
             >
               <h3 style={{ color: "#fff", fontSize: 16, fontWeight: 600, marginBottom: 6 }}>{item.school}</h3>
