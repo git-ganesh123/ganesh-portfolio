@@ -96,6 +96,37 @@ const skills = {
   Code: ["Python", "JavaScript", "Git", "Next.js", "Fullstack Development"],
 };
 
+const workExperience = [
+  {
+    title: "Freelance Web Designer & Developer",
+    date: "2024 - Present",
+    description: "Designing and building responsive portfolio and small business websites, from wireframing in Figma to deployment.",
+  },
+  {
+    title: "Design Intern",
+    date: "2023 - 2024",
+    description: "Supported UI/UX and visual design work for marketing and digital products, including prototyping and design system updates.",
+  },
+];
+
+const education = [
+  {
+    school: "University of Melbourne",
+    date: "2024 - Present",
+    description: "Bachelor of Design (Computing and Software Systems), focused on software development, product thinking, and human-centered design.",
+  },
+  {
+    school: "Online Learning Platforms (Self-Directed)",
+    date: "2022 - Present",
+    description: "Completed practical courses in JavaScript, React, and full-stack development while building personal and collaborative projects.",
+  },
+  {
+    school: "High School",
+    date: "Graduated 2023",
+    description: "Built strong foundations in mathematics, visual communication, and digital technologies through academic and extracurricular work.",
+  },
+];
+
 // ─── SPARKLE SHOWER ON LOAD ─────────────────────────────────────────────────
 
 function SparkleShower() {
@@ -569,13 +600,42 @@ function HomePage({ setCurrentPage }) {
           </p>
           <div style={{ display: "flex", gap: 12, marginTop: 32 }}>
             <LiquidGlassButton onClick={() => setCurrentPage("design")}>
-              Browse →
+              Browse
             </LiquidGlassButton>
           </div>
         </motion.div>
       </div>
 
       <div style={{ maxWidth: 1100, margin: "0 auto", padding: "60px clamp(24px,5vw,48px) 100px" }}>
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          style={{ fontSize: 13, fontWeight: 600, color: "#64B5F6", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 24 }}
+        >
+          Work Experience
+        </motion.h2>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 24, marginBottom: 56 }}>
+          {workExperience.map((job, i) => (
+            <motion.div
+              key={job.title}
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              style={{
+                padding: 28, borderRadius: 14,
+                background: "rgba(6,14,30,0.6)", border: "1px solid rgba(100,181,246,0.04)",
+              }}
+            >
+              <h3 style={{ color: "#fff", fontSize: 16, fontWeight: 600, marginBottom: 6 }}>{job.title}</h3>
+              <p style={{ color: "#64B5F6", fontSize: 12, fontWeight: 500, marginBottom: 14, letterSpacing: "0.05em", textTransform: "uppercase" }}>{job.date}</p>
+              <p style={{ color: "rgba(136,153,170,0.75)", fontSize: 14, lineHeight: 1.7 }}>{job.description}</p>
+            </motion.div>
+          ))}
+        </div>
+
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -608,6 +668,35 @@ function HomePage({ setCurrentPage }) {
                   }}>{s}</span>
                 ))}
               </div>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          style={{ fontSize: 13, fontWeight: 600, color: "#64B5F6", letterSpacing: "0.12em", textTransform: "uppercase", marginTop: 56, marginBottom: 24 }}
+        >
+          Education
+        </motion.h2>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
+          {education.map((item, i) => (
+            <motion.div
+              key={item.school}
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              style={{
+                padding: 28, borderRadius: 14,
+                background: "rgba(6,14,30,0.6)", border: "1px solid rgba(100,181,246,0.04)",
+              }}
+            >
+              <h3 style={{ color: "#fff", fontSize: 16, fontWeight: 600, marginBottom: 6 }}>{item.school}</h3>
+              <p style={{ color: "#64B5F6", fontSize: 12, fontWeight: 500, marginBottom: 14, letterSpacing: "0.05em", textTransform: "uppercase" }}>{item.date}</p>
+              <p style={{ color: "rgba(136,153,170,0.75)", fontSize: 14, lineHeight: 1.7 }}>{item.description}</p>
             </motion.div>
           ))}
         </div>
