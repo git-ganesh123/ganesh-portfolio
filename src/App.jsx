@@ -469,7 +469,7 @@ function Navbar({ currentPage, setCurrentPage }) {
           style={{
             padding: "8px 14px",
             borderRadius: 999,
-            background: "rgba(6,14,30,0.5)",
+            backgroundColor: "rgba(6,14,30,0.5)",
             border: "1px solid rgba(100,181,246,0.16)",
             color: "rgba(227,242,253,0.92)",
             backdropFilter: "blur(14px) saturate(1.3)",
@@ -482,6 +482,9 @@ function Navbar({ currentPage, setCurrentPage }) {
             WebkitAppearance: "none",
             MozAppearance: "none",
             paddingRight: 36,
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "right 12px center",
+            backgroundSize: "16px 16px",
           }}
         >
           {links.map((l) => (
