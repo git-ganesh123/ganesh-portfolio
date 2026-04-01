@@ -378,7 +378,7 @@ function Navbar({ currentPage, setCurrentPage }) {
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       style={{
         position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, padding: "0 clamp(16px, 4vw, 48px)",
-        height: 72, display: "flex", alignItems: "center", justifyContent: "space-between",
+        height: 72, display: "flex", alignItems: "center", justifyContent: "center",
         background: scrolled ? "rgba(3,7,16,0.92)" : "transparent",
         backdropFilter: scrolled ? "blur(20px) saturate(1.5)" : "none",
         borderBottom: scrolled ? "1px solid rgba(100,181,246,0.05)" : "1px solid transparent",
@@ -387,11 +387,19 @@ function Navbar({ currentPage, setCurrentPage }) {
     >
       <div
         onClick={() => setCurrentPage("home")}
-        style={{ cursor: "pointer", fontSize: 20, fontWeight: 700, letterSpacing: "-0.03em", color: "#fff" }}
+        style={{
+          position: "absolute",
+          left: "clamp(16px, 4vw, 48px)",
+          cursor: "pointer",
+          fontSize: 20,
+          fontWeight: 700,
+          letterSpacing: "-0.03em",
+          color: "#fff",
+        }}
       >
         Ganesh's <span style={{ opacity: 0.45, fontWeight: 400 }}>Portfolio</span>
       </div>
-      <div className="navGlassCenter" style={{ flex: 1, display: "flex", justifyContent: "center" }}>
+      <div className="navGlassCenter" style={{ display: "flex", justifyContent: "center" }}>
         <div
           style={{
             position: "relative",
@@ -446,7 +454,14 @@ function Navbar({ currentPage, setCurrentPage }) {
           ))}
         </div>
       </div>
-      <div className="navGlassCenterMobile" style={{ display: "none" }}>
+      <div
+        className="navGlassCenterMobile"
+        style={{
+          display: "none",
+          position: "absolute",
+          right: "clamp(16px, 4vw, 48px)",
+        }}
+      >
         <select
           className="navMobileSelect"
           value={currentPage}
@@ -454,8 +469,8 @@ function Navbar({ currentPage, setCurrentPage }) {
           style={{
             padding: "8px 14px",
             borderRadius: 999,
-            background: "rgba(6,14,30,0.4)",
-            border: "1px solid rgba(100,181,246,0.12)",
+            background: "rgba(6,14,30,0.5)",
+            border: "1px solid rgba(100,181,246,0.16)",
             color: "rgba(227,242,253,0.92)",
             backdropFilter: "blur(14px) saturate(1.3)",
             outline: "none",
@@ -561,9 +576,10 @@ function ProjectCard({ project, onClick, index }) {
         cursor: "pointer",
         borderRadius: 14,
         overflow: "hidden",
-        background: "rgba(6,14,30,0.45)",
-        border: "1px solid rgba(100,181,246,0.06)",
+        background: "rgba(12,24,44,0.52)",
+        border: "1px solid rgba(100,181,246,0.09)",
         backdropFilter: "blur(14px) saturate(1.3)",
+        boxShadow: "0 10px 38px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.03)",
         transition: "all 0.35s cubic-bezier(0.22, 1, 0.36, 1)",
       }}
       whileHover={{
@@ -702,9 +718,10 @@ function HomePage({ setCurrentPage }) {
               style={{
                 padding: 28,
                 borderRadius: 14,
-                background: "rgba(6,14,30,0.42)",
-                border: "1px solid rgba(100,181,246,0.06)",
-                backdropFilter: "blur(14px) saturate(1.25)",
+                background: "rgba(12,24,44,0.5)",
+                border: "1px solid rgba(100,181,246,0.09)",
+                backdropFilter: "blur(14px) saturate(1.3)",
+                boxShadow: "0 10px 38px rgba(0,0,0,0.22), inset 0 1px 0 rgba(255,255,255,0.03)",
               }}
             >
               <h3 style={{ color: "#fff", fontSize: 16, fontWeight: 600, marginBottom: 6 }}>{job.title}</h3>
@@ -734,9 +751,10 @@ function HomePage({ setCurrentPage }) {
               style={{
                 padding: 28,
                 borderRadius: 14,
-                background: "rgba(6,14,30,0.42)",
-                border: "1px solid rgba(100,181,246,0.06)",
-                backdropFilter: "blur(14px) saturate(1.25)",
+                background: "rgba(12,24,44,0.5)",
+                border: "1px solid rgba(100,181,246,0.09)",
+                backdropFilter: "blur(14px) saturate(1.3)",
+                boxShadow: "0 10px 38px rgba(0,0,0,0.22), inset 0 1px 0 rgba(255,255,255,0.03)",
               }}
             >
               <h3 style={{ color: "#fff", fontSize: 16, fontWeight: 600, marginBottom: 16 }}>{category}</h3>
@@ -773,9 +791,10 @@ function HomePage({ setCurrentPage }) {
               style={{
                 padding: 28,
                 borderRadius: 14,
-                background: "rgba(6,14,30,0.42)",
-                border: "1px solid rgba(100,181,246,0.06)",
-                backdropFilter: "blur(14px) saturate(1.25)",
+                background: "rgba(12,24,44,0.5)",
+                border: "1px solid rgba(100,181,246,0.09)",
+                backdropFilter: "blur(14px) saturate(1.3)",
+                boxShadow: "0 10px 38px rgba(0,0,0,0.22), inset 0 1px 0 rgba(255,255,255,0.03)",
               }}
             >
               <h3 style={{ color: "#fff", fontSize: 16, fontWeight: 600, marginBottom: 6 }}>{item.school}</h3>
