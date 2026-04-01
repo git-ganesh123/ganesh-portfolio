@@ -1066,7 +1066,7 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    const t = setTimeout(() => setIsLoading(false), 950);
+    const t = setTimeout(() => setIsLoading(false), 2000);
     return () => clearTimeout(t);
   }, []);
 
