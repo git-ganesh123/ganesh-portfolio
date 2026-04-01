@@ -98,14 +98,14 @@ const skills = {
 
 const workExperience = [
   {
-    title: "Freelance Web Designer & Developer",
-    date: "2024 - Present",
-    description: "Designing and building responsive portfolio and small business websites, from wireframing in Figma to deployment.",
+    title: "Total E-Biz Solutions - Software Engineer Intern",
+    date: "2024 June - 2024 September",
+    description: "During my 3-month internship, I gained hands-on experience in Python, and chatbot development. I worked on debugging code for a bot and learned the fundamentals of LLM models. I also implemented Azure AI services, including computer and custom vision, to enhance task efficiency. Additionally, I improved my programming skills through online courses and side projects in Python and JavaScript. I contributed to building an HR bot by making use of the Google Maps API and enhancing usability with Copilot Studio features. My work also involved automating processes with Power Automate and using the Copilot adaptive card designer.",
   },
   {
-    title: "Design Intern",
-    date: "2023 - 2024",
-    description: "Supported UI/UX and visual design work for marketing and digital products, including prototyping and design system updates.",
+    title: "Waiter & Chef",
+    date: "2024 November - 2025 February",
+    description: "Worked as a fast food employee in one of Australia's biggest food chains. I learned the ins-and-outs of meeting daily quotas, food-safety requirements and working in fast-paced environments.",
   },
 ];
 
@@ -113,17 +113,17 @@ const education = [
   {
     school: "University of Melbourne",
     date: "2024 - Present",
-    description: "Bachelor of Design (Computing and Software Systems), focused on software development, product thinking, and human-centered design.",
+    description: "Bachelor of Design (Computing and Software Systems)",
   },
   {
-    school: "Online Learning Platforms (Self-Directed)",
-    date: "2022 - Present",
-    description: "Completed practical courses in JavaScript, React, and full-stack development while building personal and collaborative projects.",
+    school: "United World College SEA Singapore",
+    date: "2022 - 2024",
+    description: "HL - Math Analysis & Approaches, Computer Science, Visual Arts. SL - Spanish B, Psychology, English",
   },
   {
-    school: "High School",
-    date: "Graduated 2023",
-    description: "Built strong foundations in mathematics, visual communication, and digital technologies through academic and extracurricular work.",
+    school: "NPS International",
+    date: "2018 - 2022",
+    description: "Completed IGCSE curriculum with 10 A*",
   },
 ];
 
