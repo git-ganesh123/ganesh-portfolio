@@ -141,18 +141,18 @@ function SparkleShower() {
     const H = (canvas.height = window.innerHeight);
 
     const createParticles = () => {
-      const PARTICLE_COUNT = 35; // fewer sparkles → more subtle
+      const PARTICLE_COUNT = 28; // fewer sparkles → more subtle
       const particles = [];
       for (let i = 0; i < PARTICLE_COUNT; i++) {
-        const startX = -80 + Math.random() * (W * 0.4);
-        const startY = -40 - Math.random() * 260;
+        const startX = Math.random() * W;
+        const startY = Math.random() * H;
         particles.push({
           x: startX,
           y: startY,
-          size: Math.random() * 1.6 + 0.4, // smaller sparkles
-          speedX: 1.4 + Math.random() * 1.6,
-          speedY: 1.8 + Math.random() * 2.2,
-          opacity: 0.6 + Math.random() * 0.4, // a bit brighter
+          size: Math.random() * 1.0 + 0.25, // smaller stars
+          speedX: -0.12 + Math.random() * 0.24,
+          speedY: -0.12 + Math.random() * 0.24,
+          opacity: 0.45 + Math.random() * 0.3, // subtle brightness
           twinkleSpeed: 0.03 + Math.random() * 0.05,
           twinklePhase: Math.random() * Math.PI * 2,
           hue: 195 + Math.random() * 40,
@@ -185,16 +185,21 @@ function SparkleShower() {
         const fadeOut = frame > maxFrames - 40 ? Math.max(0, 1 - (frame - (maxFrames - 40)) / 40) : 1;
         const alpha = p.opacity * twinkle * fadeIn * fadeOut;
 
-        if (p.y < H + 10 && p.x < W + 10) allDone = false;
+        // keep stars within viewport with gentle wraparound drift
+        if (p.x < -8) p.x = W + 8;
+        if (p.x > W + 8) p.x = -8;
+        if (p.y < -8) p.y = H + 8;
+        if (p.y > H + 8) p.y = -8;
+        allDone = false;
 
         ctx.save();
         ctx.globalAlpha = alpha;
         ctx.fillStyle = `hsl(${p.hue}, 90%, 82%)`;
         ctx.shadowColor = `hsla(${p.hue}, 100%, 80%, 1)`;
-        ctx.shadowBlur = 12;
+        ctx.shadowBlur = 8;
 
         // 4-point star sparkle
-        const s = p.size * (0.7 + twinkle * 0.6);
+        const s = p.size * (0.65 + twinkle * 0.45);
         ctx.beginPath();
         ctx.moveTo(p.x, p.y - s * 2.0);
         ctx.lineTo(p.x + s * 0.4, p.y - s * 0.4);
@@ -680,7 +685,7 @@ function HomePage({ setCurrentPage }) {
           <p style={{ fontSize: 16, color: "#64B5F6", marginTop: 12, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase" }}>
             Designer · Artist · Developer
           </p>
-          <p style={{ color: "rgba(181, 207, 232, 0.75)", fontSize: 15, lineHeight: 1.75, marginTop: 28, maxWidth: 460 }}>
+          <p style={{ color: "rgba(223, 240, 255, 0.75)", fontSize: 15, lineHeight: 1.75, marginTop: 28, maxWidth: 460 }}>
             Hi! I'm Ganesh, a second year computer science student at the University of Melbourne, pursuing a Bachelor of Design. 
             I major in Computing and Software Systems and have a strong passion for creation. Whether it may be in web development,product design
             or even visual arts, I am always looking for new challenges and opportunities to create something new.
