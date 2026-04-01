@@ -992,12 +992,82 @@ const pageVariants = {
   exit: { opacity: 0, y: -12 },
 };
 
+function LoadingScreen() {
+  return (
+    <motion.div
+      initial={{ opacity: 1 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
+      style={{
+        position: "fixed",
+        inset: 0,
+        zIndex: 99999,
+        background: "radial-gradient(circle at 30% 20%, rgba(30,77,140,0.3), #030710 55%)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <div style={{ perspective: 800, width: 84, height: 84 }}>
+        <div className="rubiks-loader-cube">
+          <div className="rubiks-face face-front" />
+          <div className="rubiks-face face-back" />
+          <div className="rubiks-face face-right" />
+          <div className="rubiks-face face-left" />
+          <div className="rubiks-face face-top" />
+          <div className="rubiks-face face-bottom" />
+        </div>
+      </div>
+      <style>{`
+        .rubiks-loader-cube {
+          position: relative;
+          width: 84px;
+          height: 84px;
+          transform-style: preserve-3d;
+          animation: rubiksTwist 1.1s ease-in-out infinite;
+        }
+        .rubiks-face {
+          position: absolute;
+          width: 84px;
+          height: 84px;
+          border: 1px solid rgba(190,225,255,0.32);
+          box-shadow: inset 0 0 0 1px rgba(120,190,255,0.12), 0 0 18px rgba(100,181,246,0.12);
+          background:
+            linear-gradient(90deg, transparent 31%, rgba(180,220,255,0.18) 31%, rgba(180,220,255,0.18) 34%, transparent 34%, transparent 66%, rgba(180,220,255,0.18) 66%, rgba(180,220,255,0.18) 69%, transparent 69%),
+            linear-gradient(transparent 31%, rgba(180,220,255,0.18) 31%, rgba(180,220,255,0.18) 34%, transparent 34%, transparent 66%, rgba(180,220,255,0.18) 66%, rgba(180,220,255,0.18) 69%, transparent 69%),
+            rgba(57,130,214,0.26);
+          backdrop-filter: blur(4px);
+        }
+        .face-front { transform: translateZ(42px); }
+        .face-back { transform: rotateY(180deg) translateZ(42px); }
+        .face-right { transform: rotateY(90deg) translateZ(42px); }
+        .face-left { transform: rotateY(-90deg) translateZ(42px); }
+        .face-top { transform: rotateX(90deg) translateZ(42px); }
+        .face-bottom { transform: rotateX(-90deg) translateZ(42px); }
+        @keyframes rubiksTwist {
+          0% { transform: rotateX(-24deg) rotateY(28deg); }
+          30% { transform: rotateX(24deg) rotateY(132deg) rotateZ(8deg); }
+          60% { transform: rotateX(-18deg) rotateY(240deg) rotateZ(-10deg); }
+          100% { transform: rotateX(-24deg) rotateY(388deg); }
+        }
+      `}</style>
+    </motion.div>
+  );
+}
+
 export default function App() {
   const [currentPage, setCurrentPage] = useState("home");
+  const [isLoading, setIsLoading] = useState(true);
 
   const handleSetPage = useCallback((page) => {
     setCurrentPage(page);
     window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
+  useEffect(() => {
+    const t = setTimeout(() => setIsLoading(false), 950);
+    return () => clearTimeout(t);
   }, []);
 
   return (
@@ -1011,6 +1081,7 @@ export default function App() {
       <AnimatedBackground />
       <MouseGlow />
       <Navbar currentPage={currentPage} setCurrentPage={handleSetPage} />
+      <AnimatePresence>{isLoading && <LoadingScreen />}</AnimatePresence>
 
       <AnimatePresence mode="wait">
         <motion.div
