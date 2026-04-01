@@ -141,7 +141,7 @@ function SparkleShower() {
     const H = (canvas.height = window.innerHeight);
 
     const createParticles = () => {
-      const PARTICLE_COUNT = 28; // fewer sparkles → more subtle
+      const PARTICLE_COUNT = 34; // slightly more noticeable
       const particles = [];
       for (let i = 0; i < PARTICLE_COUNT; i++) {
         const startX = Math.random() * W;
@@ -149,10 +149,10 @@ function SparkleShower() {
         particles.push({
           x: startX,
           y: startY,
-          size: Math.random() * 1.0 + 0.25, // smaller stars
+          size: Math.random() * 1.2 + 0.35, // still small, slightly more visible
           speedX: -0.12 + Math.random() * 0.24,
           speedY: -0.12 + Math.random() * 0.24,
-          opacity: 0.45 + Math.random() * 0.3, // subtle brightness
+          opacity: 0.55 + Math.random() * 0.3, // subtly brighter
           twinkleSpeed: 0.03 + Math.random() * 0.05,
           twinklePhase: Math.random() * Math.PI * 2,
           hue: 195 + Math.random() * 40,
@@ -196,10 +196,10 @@ function SparkleShower() {
         ctx.globalAlpha = alpha;
         ctx.fillStyle = `hsl(${p.hue}, 90%, 82%)`;
         ctx.shadowColor = `hsla(${p.hue}, 100%, 80%, 1)`;
-        ctx.shadowBlur = 8;
+        ctx.shadowBlur = 10;
 
         // 4-point star sparkle
-        const s = p.size * (0.65 + twinkle * 0.45);
+        const s = p.size * (0.68 + twinkle * 0.5);
         ctx.beginPath();
         ctx.moveTo(p.x, p.y - s * 2.0);
         ctx.lineTo(p.x + s * 0.4, p.y - s * 0.4);
