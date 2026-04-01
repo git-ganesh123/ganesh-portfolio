@@ -391,7 +391,7 @@ function Navbar({ currentPage, setCurrentPage }) {
       >
         Ganesh's <span style={{ opacity: 0.45, fontWeight: 400 }}>Portfolio</span>
       </div>
-      <div style={{ flex: 1, display: "flex", justifyContent: "center" }}>
+      <div className="navGlassCenter" style={{ flex: 1, display: "flex", justifyContent: "center" }}>
         <div
           style={{
             position: "relative",
@@ -445,6 +445,31 @@ function Navbar({ currentPage, setCurrentPage }) {
             </button>
           ))}
         </div>
+      </div>
+      <div className="navGlassCenterMobile" style={{ display: "none" }}>
+        <select
+          value={currentPage}
+          onChange={(e) => setCurrentPage(e.target.value)}
+          style={{
+            padding: "8px 14px",
+            borderRadius: 999,
+            background: "rgba(6,14,30,0.4)",
+            border: "1px solid rgba(100,181,246,0.12)",
+            color: "rgba(227,242,253,0.92)",
+            backdropFilter: "blur(14px) saturate(1.3)",
+            outline: "none",
+            fontSize: 13,
+            fontWeight: 600,
+            letterSpacing: "0.06em",
+            textTransform: "uppercase",
+          }}
+        >
+          {links.map((l) => (
+            <option key={l.key} value={l.key} style={{ color: "#030710" }}>
+              {l.label}
+            </option>
+          ))}
+        </select>
       </div>
     </motion.nav>
   );
@@ -593,7 +618,7 @@ function ProjectCard({ project, onClick, index }) {
 function HomePage({ setCurrentPage }) {
   return (
     <div style={{ minHeight: "100vh", paddingTop: 72 }}>
-      <div style={{
+      <div className="homeHeroGrid" style={{
         display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64,
         maxWidth: 1100, margin: "0 auto", padding: "80px clamp(24px,5vw,48px) 40px",
         alignItems: "center",
@@ -661,7 +686,7 @@ function HomePage({ setCurrentPage }) {
         >
           Work Experience
         </motion.h2>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 24, marginBottom: 56 }}>
+        <div className="twoColGrid" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 24, marginBottom: 56 }}>
           {workExperience.map((job, i) => (
             <motion.div
               key={job.title}
@@ -693,7 +718,7 @@ function HomePage({ setCurrentPage }) {
         >
           Skills & Tools
         </motion.h2>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 32 }}>
+        <div className="threeColGrid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 32 }}>
           {Object.entries(skills).map(([category, items], i) => (
             <motion.div
               key={category}
@@ -732,7 +757,7 @@ function HomePage({ setCurrentPage }) {
         >
           Education
         </motion.h2>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
+        <div className="threeColGrid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
           {education.map((item, i) => (
             <motion.div
               key={item.school}
@@ -788,7 +813,7 @@ function DesignPage() {
           ))}
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(310px, 1fr))", gap: 24 }}>
+        <div className="pageGrid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 24 }}>
           {filtered.map((p, i) => (
             <ProjectCard key={p.id} project={p} onClick={setSelected} index={i} />
           ))}
@@ -855,7 +880,7 @@ function ArtPage() {
           <p style={{ color: "rgba(136,153,170,0.65)", fontSize: 15, marginTop: 8 }}>Digital paintings, concept art, and visual explorations.</p>
         </motion.div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(310px, 1fr))", gap: 24, marginTop: 40 }}>
+        <div className="pageGrid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 24, marginTop: 40 }}>
           {artProjects.map((p, i) => (
             <ProjectCard key={p.id} project={p} onClick={() => setSelectedIdx(i)} index={i} />
           ))}
@@ -916,7 +941,7 @@ function CodePage() {
           <p style={{ color: "rgba(136,153,170,0.65)", fontSize: 15, marginTop: 8 }}>Open source tools, creative experiments, and engineering work.</p>
         </motion.div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(310px, 1fr))", gap: 24, marginTop: 40 }}>
+        <div className="pageGrid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 24, marginTop: 40 }}>
           {codeProjects.map((p, i) => (
             <ProjectCard
               key={p.id}

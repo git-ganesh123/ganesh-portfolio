@@ -12,6 +12,38 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Mobile responsiveness helpers */
+@media (max-width: 900px) {
+  .navGlassCenter {
+    display: none !important;
+  }
+  .navGlassCenterMobile {
+    display: inline-flex !important;
+  }
+}
+
+@media (max-width: 720px) {
+  .homeHeroGrid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+  .homeHeroGrid > :first-child {
+    order: 2;
+  }
+  .homeHeroGrid > :last-child {
+    order: 1;
+  }
+  .twoColGrid {
+    grid-template-columns: 1fr !important;
+  }
+  .threeColGrid {
+    grid-template-columns: 1fr !important;
+  }
+  .pageGrid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
 ::-webkit-scrollbar {
   width: 6px;
 }
