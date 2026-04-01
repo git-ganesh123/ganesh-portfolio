@@ -563,14 +563,20 @@ function HomePage({ setCurrentPage }) {
             Designer · Artist · Developer
           </p>
           <p style={{ color: "rgba(136,153,170,0.75)", fontSize: 15, lineHeight: 1.75, marginTop: 28, maxWidth: 460 }}>
-            I craft digital experiences at the intersection of design, art, and engineering.
-            With a deep passion for visual storytelling and clean code, I build things that
-            are beautiful to look at and a joy to use. Every project is an opportunity to
-            push creative and technical boundaries.
+            Hi! I'm Ganesh, a second year computer science student at the University of Melbourne, pursuing a Bachelor of Design. 
+            I major in Computing and Software Systems and have a strong passion for creation. Whether it may be in web development,product design
+            or even visual arts, I am always looking for new challenges and opportunities to create something new.
+
+            Outside of school, I am a ranked Rubik's cube speedsolver and an avid runner(I recently completed my first marathon!). 
+            I love pushing my boundaries in the gym and in sports such as football as well. 
+            I thrive in optimistic and sociable environments and bring a positive energy to any room I walk into.
+
+            Check out my work - I'm sure you'll love it!
+            
           </p>
           <div style={{ display: "flex", gap: 12, marginTop: 32 }}>
             <LiquidGlassButton onClick={() => setCurrentPage("design")}>
-              View Work →
+              Browse →
             </LiquidGlassButton>
           </div>
         </motion.div>
