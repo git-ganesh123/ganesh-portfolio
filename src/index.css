@@ -22,16 +22,18 @@ body {
   }
 }
 
+/* Bright, visible chevron for the mobile navbar select */
+.navMobileSelect {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24'%3E%3Cpath fill='rgba(227,242,253,0.95)' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px 16px;
+}
+
 @media (max-width: 720px) {
   .homeHeroGrid {
     grid-template-columns: 1fr !important;
     gap: 32px !important;
-  }
-  .homeHeroGrid > :first-child {
-    order: 2;
-  }
-  .homeHeroGrid > :last-child {
-    order: 1;
   }
   .twoColGrid {
     grid-template-columns: 1fr !important;

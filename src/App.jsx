@@ -448,6 +448,7 @@ function Navbar({ currentPage, setCurrentPage }) {
       </div>
       <div className="navGlassCenterMobile" style={{ display: "none" }}>
         <select
+          className="navMobileSelect"
           value={currentPage}
           onChange={(e) => setCurrentPage(e.target.value)}
           style={{
@@ -462,6 +463,10 @@ function Navbar({ currentPage, setCurrentPage }) {
             fontWeight: 600,
             letterSpacing: "0.06em",
             textTransform: "uppercase",
+            appearance: "none",
+            WebkitAppearance: "none",
+            MozAppearance: "none",
+            paddingRight: 36,
           }}
         >
           {links.map((l) => (
