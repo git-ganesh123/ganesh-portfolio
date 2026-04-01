@@ -6,21 +6,21 @@ import { motion, AnimatePresence } from "framer-motion";
 const designProjects = [
   {
     id: 1,
-    title: "Meridian Banking App",
-    description: "A complete redesign of a digital banking experience focusing on clarity, trust, and seamless transaction flows.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-    tools: ["Figma", "Protopie", "Illustrator"],
-    date: "2025",
-    tags: ["UI/UX", "Mobile", "Fintech"],
+    title: "FireUp Energy Drink",
+    description: "Designed prototype cans for the Fire Up Energy drink brand which was promoted at the Australian Fitness Expo 2026",
+    image: "fireup.png",
+    tools: ["Figma", "NanoBanana", "Affinity Designer"],
+    date: "2026",
+    tags: ["UI/UX", "Product Design", "Graphic Design"],
   },
   {
     id: 2,
-    title: "Aether Brand System",
-    description: "Comprehensive brand identity for a climate-tech startup. Logo, typography system, color palette, and full guidelines.",
-    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80",
-    tools: ["Illustrator", "Photoshop", "Figma"],
-    date: "2024",
-    tags: ["Branding", "Identity", "Print"],
+    title: "Aerox Breathing",
+    description: "Helped design the website for the Nasal-Strip Company Aerox.",
+    image: "aerox.png",
+    tools: ["Cursor", "CSS", "Figma"],
+    date: "2025",
+    tags: ["Branding", "Web Design", "Marketing"],
   },
 ];
 
