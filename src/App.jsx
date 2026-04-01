@@ -78,12 +78,12 @@ const artProjects = [
 const codeProjects = [
   {
     id: 1,
-    title: "Synth Engine",
+    title: "Reel Radar",
     description: "Browser-based modular synthesizer built with Web Audio API. Supports MIDI input, custom oscillators, and real-time visualization.",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80",
+    image: "reelradarimage.png",
     status: "completed",
     date: "2025",
-    github: "https://github.com",
+    github: "https://github.com/Git-Ganesh123/reel-radar",
     tags: ["TypeScript", "Web Audio", "React"],
   },
   {
