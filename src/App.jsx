@@ -387,37 +387,82 @@ function Navbar({ currentPage, setCurrentPage }) {
     >
       <div
         onClick={() => setCurrentPage("home")}
-        style={{ cursor: "pointer", fontSize: 18, fontWeight: 700, letterSpacing: "-0.02em", color: "#fff" }}
+        style={{ cursor: "pointer", fontSize: 20, fontWeight: 700, letterSpacing: "-0.03em", color: "#fff" }}
       >
-        Ganesh's <span style={{ opacity: 0.4, fontWeight: 400 }}>Portfolio</span>
+        Ganesh's <span style={{ opacity: 0.45, fontWeight: 400 }}>Portfolio</span>
       </div>
-      <div style={{ display: "flex", gap: 32 }}>
-        {links.map((l) => (
-          <button
-            key={l.key}
-            onClick={() => setCurrentPage(l.key)}
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: 20,
+        }}
+      >
+        <button
+          onClick={() => setCurrentPage("home")}
+          style={{
+            background: "none",
+            border: "none",
+            cursor: "pointer",
+            color: currentPage === "home" ? "#64B5F6" : "rgba(136,153,170,0.75)",
+            fontSize: 13,
+            fontWeight: 500,
+            letterSpacing: "0.08em",
+            textTransform: "uppercase",
+          }}
+        >
+          Home
+        </button>
+        <div
+          style={{
+            position: "relative",
+            display: "inline-flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 16,
+            padding: "6px 18px",
+            borderRadius: 999,
+            color: "#64B5F6",
+            minWidth: 220,
+          }}
+        >
+          <div
+            className="absolute top-0 left-0 z-0 h-full w-full rounded-full"
             style={{
-              background: "none", border: "none", cursor: "pointer", position: "relative",
-              color: currentPage === l.key ? "#64B5F6" : "rgba(136,153,170,0.7)",
-              fontSize: 14, fontWeight: 500, letterSpacing: "0.02em", padding: "4px 0",
-              transition: "color 0.3s",
+              boxShadow:
+                "0 0 6px rgba(0,0,0,0.03), 0 2px 6px rgba(0,0,0,0.08), inset 3px 3px 0.5px -3.5px rgba(255,255,255,0.09), inset -3px -3px 0.5px -3.5px rgba(255,255,255,0.85), inset 1px 1px 1px -0.5px rgba(255,255,255,0.6), inset -1px -1px 1px -0.5px rgba(255,255,255,0.6), inset 0 0 6px 6px rgba(255,255,255,0.12), inset 0 0 2px 2px rgba(255,255,255,0.06), 0 0 12px rgba(0,0,0,0.15)",
             }}
-            onMouseEnter={(e) => { if (currentPage !== l.key) e.target.style.color = "#64B5F6"; }}
-            onMouseLeave={(e) => { if (currentPage !== l.key) e.target.style.color = "rgba(136,153,170,0.7)"; }}
-          >
-            {l.label}
-            {currentPage === l.key && (
-              <motion.div
-                layoutId="nav-underline"
+          />
+          <div
+            className="absolute top-0 left-0 isolate -z-10 h-full w-full overflow-hidden rounded-full"
+            style={{
+              backdropFilter: "blur(12px) saturate(1.4)",
+              background: "rgba(100,181,246,0.08)",
+            }}
+          />
+          {links
+            .filter((l) => l.key !== "home")
+            .map((l) => (
+              <button
+                key={l.key}
+                onClick={() => setCurrentPage(l.key)}
                 style={{
-                  position: "absolute", bottom: -2, left: 0, right: 0, height: 2,
-                  background: "#64B5F6", borderRadius: 1,
-                  boxShadow: "0 0 8px rgba(100,181,246,0.5)",
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  position: "relative",
+                  color: currentPage === l.key ? "#E3F2FD" : "rgba(197,218,242,0.86)",
+                  fontSize: 13,
+                  fontWeight: currentPage === l.key ? 600 : 500,
+                  letterSpacing: "0.08em",
+                  textTransform: "uppercase",
+                  padding: "4px 6px",
                 }}
-              />
-            )}
-          </button>
-        ))}
+              >
+                {l.label}
+              </button>
+            ))}
+        </div>
       </div>
     </motion.nav>
   );
@@ -586,7 +631,7 @@ function HomePage({ setCurrentPage }) {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
         >
-          <h1 style={{ fontSize: "clamp(36px,5vw,56px)", fontWeight: 700, color: "#fff", lineHeight: 1.1, margin: 0, letterSpacing: "-0.03em" }}>
+          <h1 style={{ fontSize: "clamp(40px,5.4vw,60px)", fontWeight: 700, color: "#fff", lineHeight: 1.08, margin: 0, letterSpacing: "-0.03em" }}>
             Ganesh's
             <br />
             <span style={{ color: "#64B5F6" }}>Portfolio</span>
@@ -726,7 +771,7 @@ function DesignPage() {
     <div style={{ minHeight: "100vh", paddingTop: 72 }}>
       <div style={{ maxWidth: 1100, margin: "0 auto", padding: "60px clamp(24px,5vw,48px) 40px" }}>
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-          <h1 style={{ fontSize: 36, fontWeight: 700, color: "#fff", letterSpacing: "-0.03em" }}>Design Projects</h1>
+          <h1 style={{ fontSize: 40, fontWeight: 700, color: "#fff", letterSpacing: "-0.03em" }}>Design Projects</h1>
           <p style={{ color: "rgba(136,153,170,0.65)", fontSize: 15, marginTop: 8 }}>Selected work across product, brand, and interface design.</p>
         </motion.div>
 
@@ -805,7 +850,7 @@ function ArtPage() {
     <div style={{ minHeight: "100vh", paddingTop: 72 }}>
       <div style={{ maxWidth: 1100, margin: "0 auto", padding: "60px clamp(24px,5vw,48px) 40px" }}>
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-          <h1 style={{ fontSize: 36, fontWeight: 700, color: "#fff", letterSpacing: "-0.03em" }}>Art Gallery</h1>
+          <h1 style={{ fontSize: 40, fontWeight: 700, color: "#fff", letterSpacing: "-0.03em" }}>Art Gallery</h1>
           <p style={{ color: "rgba(136,153,170,0.65)", fontSize: 15, marginTop: 8 }}>Digital paintings, concept art, and visual explorations.</p>
         </motion.div>
 
@@ -866,7 +911,7 @@ function CodePage() {
     <div style={{ minHeight: "100vh", paddingTop: 72 }}>
       <div style={{ maxWidth: 1100, margin: "0 auto", padding: "60px clamp(24px,5vw,48px) 40px" }}>
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-          <h1 style={{ fontSize: 36, fontWeight: 700, color: "#fff", letterSpacing: "-0.03em" }}>Code Projects</h1>
+          <h1 style={{ fontSize: 40, fontWeight: 700, color: "#fff", letterSpacing: "-0.03em" }}>Code Projects</h1>
           <p style={{ color: "rgba(136,153,170,0.65)", fontSize: 15, marginTop: 8 }}>Open source tools, creative experiments, and engineering work.</p>
         </motion.div>
 
