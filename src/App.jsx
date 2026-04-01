@@ -680,7 +680,7 @@ function HomePage({ setCurrentPage }) {
           <p style={{ fontSize: 16, color: "#64B5F6", marginTop: 12, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase" }}>
             Designer · Artist · Developer
           </p>
-          <p style={{ color: "rgba(136,153,170,0.75)", fontSize: 15, lineHeight: 1.75, marginTop: 28, maxWidth: 460 }}>
+          <p style={{ color: "rgba(181, 207, 232, 0.75)", fontSize: 15, lineHeight: 1.75, marginTop: 28, maxWidth: 460 }}>
             Hi! I'm Ganesh, a second year computer science student at the University of Melbourne, pursuing a Bachelor of Design. 
             I major in Computing and Software Systems and have a strong passion for creation. Whether it may be in web development,product design
             or even visual arts, I am always looking for new challenges and opportunities to create something new.
