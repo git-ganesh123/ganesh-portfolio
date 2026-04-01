@@ -686,15 +686,11 @@ function HomePage({ setCurrentPage }) {
             Designer · Artist · Developer
           </p>
           <p style={{ color: "rgba(223, 240, 255, 0.75)", fontSize: 15, lineHeight: 1.75, marginTop: 28, maxWidth: 460 }}>
-            Hi! I'm Ganesh, a second year computer science student at the University of Melbourne, pursuing a Bachelor of Design. 
-            I major in Computing and Software Systems and have a strong passion for creation. Whether it may be in web development,product design
-            or even visual arts, I am always looking for new challenges and opportunities to create something new.
+          Hi! I'm Ganesh, a second-year computer science student at the University of Melbourne, pursuing a Bachelor of Design. I major in Computing and Software Systems and have a strong passion for creation. Whether it's web development, product design, or visual arts, I’m always looking for new challenges and opportunities to build something new.
 
-            Outside of school, I am a ranked Rubik's cube speedsolver and an avid runner(I recently completed my first marathon!). 
-            I love pushing my boundaries in the gym and in sports such as football as well. 
-            I thrive in optimistic and sociable environments and bring a positive energy to any room I walk into.
+          Outside of university, I’m a ranked Rubik’s Cube speedsolver and an avid runner (I recently completed my first marathon!). I also enjoy pushing my limits in the gym and in sports like football. I thrive in optimistic, social environments and like to bring positive energy wherever I go.
 
-            Check out my work - I'm sure you'll love it!
+          Check out my work — I’m sure you’ll love it!
             
           </p>
           <div style={{ display: "flex", gap: 12, marginTop: 32 }}>
