@@ -140,30 +140,33 @@ function SparkleShower() {
     const W = (canvas.width = window.innerWidth);
     const H = (canvas.height = window.innerHeight);
 
-    const PARTICLE_COUNT = 80;
-    const particles = [];
+    const createParticles = () => {
+      const PARTICLE_COUNT = 35; // fewer sparkles → more subtle
+      const particles = [];
+      for (let i = 0; i < PARTICLE_COUNT; i++) {
+        const startX = -80 + Math.random() * (W * 0.4);
+        const startY = -40 - Math.random() * 260;
+        particles.push({
+          x: startX,
+          y: startY,
+          size: Math.random() * 1.6 + 0.4, // smaller sparkles
+          speedX: 1.4 + Math.random() * 1.6,
+          speedY: 1.8 + Math.random() * 2.2,
+          opacity: 0.6 + Math.random() * 0.4, // a bit brighter
+          twinkleSpeed: 0.03 + Math.random() * 0.05,
+          twinklePhase: Math.random() * Math.PI * 2,
+          hue: 195 + Math.random() * 40,
+          delay: Math.random() * 40,
+          tick: 0,
+        });
+      }
+      return particles;
+    };
 
-    for (let i = 0; i < PARTICLE_COUNT; i++) {
-      const startX = -100 + Math.random() * (W * 0.5);
-      const startY = -60 - Math.random() * 400;
-      particles.push({
-        x: startX,
-        y: startY,
-        size: Math.random() * 2.8 + 0.8,
-        speedX: 2.2 + Math.random() * 2.8,
-        speedY: 2.8 + Math.random() * 3.2,
-        opacity: Math.random() * 0.8 + 0.2,
-        twinkleSpeed: 0.025 + Math.random() * 0.05,
-        twinklePhase: Math.random() * Math.PI * 2,
-        hue: 195 + Math.random() * 50,
-        delay: Math.random() * 50,
-        tick: 0,
-      });
-    }
-
+    let particles = createParticles();
     let frame = 0;
     let raf;
-    const maxFrames = 200;
+    const maxFrames = 160;
 
     const draw = () => {
       frame++;
@@ -177,29 +180,29 @@ function SparkleShower() {
         p.x += p.speedX;
         p.y += p.speedY;
 
-        const twinkle = 0.4 + 0.6 * Math.sin(p.twinklePhase + p.tick * p.twinkleSpeed);
-        const fadeIn = Math.min(1, (p.tick - p.delay) / 12);
-        const fadeOut = frame > maxFrames - 50 ? Math.max(0, 1 - (frame - (maxFrames - 50)) / 50) : 1;
+        const twinkle = 0.5 + 0.7 * Math.sin(p.twinklePhase + p.tick * p.twinkleSpeed);
+        const fadeIn = Math.min(1, (p.tick - p.delay) / 10);
+        const fadeOut = frame > maxFrames - 40 ? Math.max(0, 1 - (frame - (maxFrames - 40)) / 40) : 1;
         const alpha = p.opacity * twinkle * fadeIn * fadeOut;
 
-        if (p.y < H + 20 && p.x < W + 20) allDone = false;
+        if (p.y < H + 10 && p.x < W + 10) allDone = false;
 
         ctx.save();
         ctx.globalAlpha = alpha;
-        ctx.fillStyle = `hsl(${p.hue}, 85%, 80%)`;
-        ctx.shadowColor = `hsla(${p.hue}, 95%, 78%, 1)`;
-        ctx.shadowBlur = 10;
+        ctx.fillStyle = `hsl(${p.hue}, 90%, 82%)`;
+        ctx.shadowColor = `hsla(${p.hue}, 100%, 80%, 1)`;
+        ctx.shadowBlur = 12;
 
         // 4-point star sparkle
-        const s = p.size * (0.6 + twinkle * 0.7);
+        const s = p.size * (0.7 + twinkle * 0.6);
         ctx.beginPath();
-        ctx.moveTo(p.x, p.y - s * 2.2);
+        ctx.moveTo(p.x, p.y - s * 2.0);
         ctx.lineTo(p.x + s * 0.4, p.y - s * 0.4);
-        ctx.lineTo(p.x + s * 2.2, p.y);
+        ctx.lineTo(p.x + s * 2.0, p.y);
         ctx.lineTo(p.x + s * 0.4, p.y + s * 0.4);
-        ctx.lineTo(p.x, p.y + s * 2.2);
+        ctx.lineTo(p.x, p.y + s * 2.0);
         ctx.lineTo(p.x - s * 0.4, p.y + s * 0.4);
-        ctx.lineTo(p.x - s * 2.2, p.y);
+        ctx.lineTo(p.x - s * 2.0, p.y);
         ctx.lineTo(p.x - s * 0.4, p.y - s * 0.4);
         ctx.closePath();
         ctx.fill();
@@ -209,7 +212,12 @@ function SparkleShower() {
       if (frame < maxFrames && !allDone) {
         raf = requestAnimationFrame(draw);
       } else {
-        setVisible(false);
+        // pause, then trigger another subtle shower
+        setTimeout(() => {
+          frame = 0;
+          particles = createParticles();
+          raf = requestAnimationFrame(draw);
+        }, 7000); // every ~7 seconds
       }
     };
 
