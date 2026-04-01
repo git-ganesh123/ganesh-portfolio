@@ -103,7 +103,7 @@ const workExperience = [
     description: "During my 3-month internship, I gained hands-on experience in Python, and chatbot development. I worked on debugging code for a bot and learned the fundamentals of LLM models. I also implemented Azure AI services, including computer and custom vision, to enhance task efficiency. Additionally, I improved my programming skills through online courses and side projects in Python and JavaScript. I contributed to building an HR bot by making use of the Google Maps API and enhancing usability with Copilot Studio features. My work also involved automating processes with Power Automate and using the Copilot adaptive card designer.",
   },
   {
-    title: "Waiter & Chef",
+    title: "Grill'd - Waiter & Chef",
     date: "2024 November - 2025 February",
     description: "Worked as a fast food employee in one of Australia's biggest food chains. I learned the ins-and-outs of meeting daily quotas, food-safety requirements and working in fast-paced environments.",
   },
